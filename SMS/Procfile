@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath SMS SMS.deploy --log-file -
