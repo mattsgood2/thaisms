@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 #THIRD PART APPS#
     'bootstrap3',
     'django_forms_bootstrap',
-    'timezone_field'
+    'timezone_field',
 
 ]
 
