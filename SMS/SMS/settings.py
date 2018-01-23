@@ -38,7 +38,7 @@ SECRET_KEY = get_env_variable('SECRET_KEY')
 #
 
 # Twilio-infomation #
-
+TWILIO_NUMBER = get_env_variable('TWILIO_NUMBER')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
