@@ -14,7 +14,7 @@ class Reservation(models.Model):
     party_size = models.CharField(max_length=10)
     comments = models.TextField(max_length=255)
     time = models.DateTimeField()
-    time_zone = TimeZoneField(default='GB')
+    time_zone = TimeZoneField(default='GMT')
 
     task_id = models.CharField(max_length=50, blank=True, editable=False)
     created_on = models.DateTimeField(auto_now_add=True)
