@@ -10,22 +10,22 @@ from .models import Reservation
 class SmsView(TemplateView):
     template_name = 'reservation/index.html'
 
-class ReservationsListView(ListView):
+class ReservationListView(ListView):
     model = Reservation
 
-class ReservationsDetaileView(DeleteView):
+class ReservationDetailView(DetailView):
     model = Reservation
 
-class ReservationsCreateView(SuccessMessageMixin, CreateView):
+class ReservationCreateView(SuccessMessageMixin, CreateView):
     model = Reservation
     fields = ['name', 'mobile_number', 'party_size', 'time']
     success_message = 'Your Reservation has been taken successfully'
 
-class ReservationsUpdateView(UpdateView):
+class ReservationUpdateView(UpdateView):
     model = Reservation
     fields = ['name', 'mobile_number', 'party_size', 'time' ]
     success_message = 'You have updated/edited your reservation, Thank You'
 
-class ReservationsDeleteView(DeleteView):
+class ReservationDeleteView(DeleteView):
     model = Reservation
     success_url = reverse_lazy('list_reservations')
