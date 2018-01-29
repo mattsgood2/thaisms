@@ -24,7 +24,7 @@ class ReservationsCreateView(SuccessMessageMixin, CreateView):
 class ReservationsUpdateView(UpdateView):
     model = Reservation
     fields = ['name', 'mobile_number', 'party_size', 'time' ]
-    success_message = 'You have updated/edited you reservation, Thank You'
+    success_message = 'You have updated/edited your reservation, Thank You'
 
 class ReservationsDeleteView(DeleteView):
     model = Reservation

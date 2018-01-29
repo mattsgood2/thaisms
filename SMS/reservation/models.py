@@ -18,5 +18,5 @@ class Reservation(models.Model):
     def __str__(self):
         return 'Reservations {0} - {1}'.format(self.pk, self.name)
 
-    def et_absolute_url(self):
+    def get_absolute_url(self):
         return reverse('view_reservation', args=[str(self.id)])
