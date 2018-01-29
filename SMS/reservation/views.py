@@ -7,8 +7,7 @@ from django.views.generic.base import TemplateView
 from .models import Reservation
 
 # Create your views here.
-class SmsView(TemplateView):
-    template_name = 'reservation/index.html'
+
 
 class ReservationListView(ListView):
     model = Reservation
