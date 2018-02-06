@@ -17,14 +17,14 @@ class ReservationDetailView(DetailView):
 
 class ReservationCreateView(SuccessMessageMixin, CreateView):
     model = Reservation
-    fields = ['name', 'mobile_number', 'party_size', 'time']
+    fields = ['name', 'mobile_number', 'party_size', 'comments', 'time']
     success_message = 'Your Reservation has been taken successfully'
 
-class ReservationUpdateView(UpdateView):
+class ReservationUpdateView(SuccessMessageMixin, UpdateView):
     model = Reservation
     fields = ['name', 'mobile_number', 'party_size', 'time' ]
     success_message = 'You have updated/edited your reservation, Thank You'
 
 class ReservationDeleteView(DeleteView):
     model = Reservation
-    success_url = reverse_lazy('list_reservations')
+    success_url = reverse_lazy('list_reservation')

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
 
 {% block title %}Upcoming Reservations{% endblock title %}
 
@@ -33,7 +33,7 @@
               <td>{{ reservation.mobile_number }}</td>
               </td>{{ reservation.party_size}}</td>
               <td>{{ reservation.time }}</td>
-              <td>{{ reservation.created }}</td>
+              <td>{{ reservation.created_on }}</td>
               <td>
                 <a class="btn btn-default btn-xs" href="{% url 'edit_reservation' reservation.pk %}">Edit</a>
                 <a class="btn btn-xs btn-danger" href="{% url 'delete_reservation' reservation.pk %}">Delete</a>

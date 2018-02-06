@@ -22,8 +22,8 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^SMS/', include('reservation.urls', namespace='reservations')),
-    url(r'^$', TemplateView.as_view(template_name = 'home.html')),
+    url(r'^$', TemplateView.as_view(template_name = 'home.html'), name='home'),
+    url(r'^reservation/', include('reservation.urls')),
     url(r'^admin/', admin.site.urls),
 
 ]
