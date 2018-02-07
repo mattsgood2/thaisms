@@ -4,11 +4,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        {% block title %} IT WORKED {% endblock %}
+        {% block title %} IT WORKED {% endblock title %}
     </head>
     {% block content %}
     <body>
         <h1><strong>Hello World</strong></h1>
+        <a href="{% url 'new_reservation' %}">Book Reservation</a>
     </body>
     {% endblock %}
 </html>
