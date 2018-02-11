@@ -29,4 +29,4 @@ class Reservation(models.Model):
         reservation_time = arrow.get(self.time, self.time_zone.zone)
 
         if reservation_time < arrow.utcnow():
-            raise ValidationError("You cannot book a Reservation for the Past!, Please check you time. ")
+            raise ValidationError("You cannot book a Reservation for the Past!, Please check your time. ")
