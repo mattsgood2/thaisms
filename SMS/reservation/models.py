@@ -30,3 +30,23 @@ class Reservation(models.Model):
 
         if reservation_time < arrow.utcnow():
             raise ValidationError("You cannot book a Reservation for the Past!, Please check your time. ")
+
+    def schedule_reminder(self):
+        reservation_time = arrow.get(self.time, self.time_zone)
+        reminder_time = reservation_time.replace(minutes=-settings.REMINDER_TIME)
+
+        from .tasks import send_sms_reminder
+        result = send_sms_reminder.apply_async((self.pk), eta=reminder_time)
+
+        return result.id
+
+    def save(self, *args, **kwargs):
+        if self.task_id:
+            celery_app.control.revoke(self.task_id)
+
+        super(Reservation, self).save(*args, **kwargs)
+
+        self.task_id = self.schedule_reminder()
+
+        super(Reservation, self).save(*args, **kwargs)
+        

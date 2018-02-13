@@ -21,7 +21,7 @@ def send_sms_reminder(reservation_id):
         return
 
     reservation_time = arrow.get(reservation_time)
-    body = "Hi you have a Reservation @ {0} booking name of {1} today ".format(reservation.time.format('h:mm a'),reservation.name )
+    body = "Hi you have a Reservation @ {0} booking name of {1} today ".format(reservation.time.format('h:mm a'),reservation.name ))
 
 message = Client.message.create(
     body = body,

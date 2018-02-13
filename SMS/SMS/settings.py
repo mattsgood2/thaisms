@@ -35,7 +35,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
-#
+BROKER_URL = 'redis://localhost:8000'
+BROKER_POOL_LIMIT = 8
+
+
+REMINDER_TIME = 30 # minutes
 
 # Twilio-infomation #
 TWILIO_NUMBER = get_env_variable('TWILIO_NUMBER')
