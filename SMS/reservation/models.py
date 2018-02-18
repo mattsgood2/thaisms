@@ -1,4 +1,4 @@
-from SMS import celery_app
+from sms import celery_app
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
@@ -36,7 +36,7 @@ class Reservation(models.Model):
         reminder_time = reservation_time.replace(minutes=-settings.REMINDER_TIME)
 
         from .tasks import send_sms_reminder
-        result = send_sms_reminder.apply_async((self.pk), eta=reminder_time)
+        result = send_sms_reminder.apply_async((self.pk,), eta=reminder_time)
 
         return result.id
 
@@ -49,4 +49,3 @@ class Reservation(models.Model):
         self.task_id = self.schedule_reminder()
 
         super(Reservation, self).save(*args, **kwargs)
-        

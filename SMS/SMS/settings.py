@@ -33,16 +33,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env_variable('SECRET_KEY')
+SECRET_KEY = '2c0*gg8w2k7b2y4n8^l@er*bj#4cvo55g_&*a+p+&gb9xe^vpm'
 
-BROKER_URL = 'redis://localhost:8000'
-BROKER_POOL_LIMIT = 8
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_POOL_LIMIT = 8
 
 
 REMINDER_TIME = 30 # minutes
 
 # Twilio-infomation #
-TWILIO_NUMBER = get_env_variable('TWILIO_NUMBER')
+twilio_number = os.environ['TWILIO_NUMBER']
+account_sid = os.environ['TWILIO_ACCOUNT_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,7 +83,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'SMS.urls'
+ROOT_URLCONF = 'sms.urls'
 
 TEMPLATES = [
     {
@@ -98,7 +101,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SMS.wsgi.application'
+WSGI_APPLICATION = 'sms.wsgi.application'
 
 
 # Database

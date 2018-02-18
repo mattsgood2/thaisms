@@ -11,10 +11,32 @@
 
       <form action="" method="post">
           {% csrf_token %}
-          <p>Are you sure you want to delete <strong>{{ object }}</strong>?</p>
-          <a class="btn btn-default" href="javascript:history.back()">Back</a>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone number</th>
+                <th>Party Size</th>
+                <th>Booked Date/Time</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>{{ reservation.name }}</td>
+                  <td>{{ reservation.mobile_number }}</td>
+                  <td>{{ reservation.party_size}}</td>
+                  <td>{{ reservation.time }}</td>
+
+                <td>
+                    <a class="btn btn-default" href="javascript:history.back()">Back</a>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
       </form>
     </div>
   </div>
+
 {% endblock %}

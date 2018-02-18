@@ -4,12 +4,13 @@ from celery import shared_task
 from django.conf import settings
 from twilio.rest import Client
 
+import os
 import arrow
 
 from .models import Reservation
 
-account_sid = get_env_variable['TWILIO_ACCOUNT_SID']
-auth_token = get_env_variable['TWILIO_AUTH_TOKEN']
+account_sid = os.environ['TWILIO_ACCOUNT_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
 client = Client(account_sid, auth_token)
 
@@ -20,11 +21,11 @@ def send_sms_reminder(reservation_id):
     except Reservation.DoesNotExits:
         return
 
-    reservation_time = arrow.get(reservation_time)
-    body = "Hi you have a Reservation @ {0} booking name of {1} today ".format(reservation.time.format('h:mm a'),reservation.name ))
+    reservation_time = arrow.get(reservation.time, reservation.time_zone)
+    body = "Hi you have a Reservation @ {0} booking name of {1} today ".format(reservation.name, reservation_time.format('h:mm a'))
 
-message = Client.message.create(
-    body = body,
-    to = reservation.mobile_number,
-    from_ = settings.TWILIO_NUMBER,
-)
+    message = Client.message.create(
+        body = body,
+        to = reservation.mobile_number,
+        from_ = settings.twilio_number,
+    )
