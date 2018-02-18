@@ -1,2 +1,2 @@
-web: gunicorn --pythonpath sms sms.settings --log-file -
+web: gunicorn --pythonpath sms sms.deploy --log-file -
 worker: celery -A sms.settings worker -l info
