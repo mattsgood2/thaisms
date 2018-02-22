@@ -12,29 +12,29 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 
 import os
+import environ
+
+root = environ.Path(__file__)
+env = environ.Env(DEBUG=(bool, False),)
+environ.Env.read_env()
+SITE_ROOT = root()
+DEBUG = env('DEBUG')
 
 
-def get_env_variable(var_name):
-    try:
-        return os.environ[var_name]
-    except KeyError:
-        error_msg = "Set the {} env variable".format(var_name)
-        if DEBUG:
-            warnings.warn(error_msg)
-        else:
-            raise ImproperlyConfigured(error_msg)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2c0*gg8w2k7b2y4n8^l@er*bj#4cvo55g_&*a+p+&gb9xe^vpm'
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
+
+CELERY_BROKER_URL = env('CELERY_BROKER_URL')
 CELERY_BROKER_POOL_LIMIT = 8
 
 
@@ -88,7 +88,7 @@ ROOT_URLCONF = 'sms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates','TEMPLATE_DEBUG')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -96,6 +96,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'debug'
+
+
             ],
         },
     },
