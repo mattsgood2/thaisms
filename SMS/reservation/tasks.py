@@ -5,12 +5,13 @@ from django.conf import settings
 from twilio.rest import Client
 
 import os
+import environ
 import arrow
 
 from .models import Reservation
 
-account_sid = os.environ['TWILIO_ACCOUNT_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN']
+account_sid = os.environ['MY_TWILIO_NUMBER']
+auth_token = os.environ['MY_TWILIO_AUTH_TOKEN']
 
 client = Client(account_sid, auth_token)
 
@@ -27,5 +28,5 @@ def send_sms_reminder(reservation_id):
     message = Client.message.create(
         body = body,
         to = reservation.mobile_number,
-        from_ = settings.twilio_number,
+        from_ = os.environ['MY_TWILIO_NUMBER'],
     )

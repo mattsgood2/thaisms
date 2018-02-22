@@ -34,16 +34,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 
-CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+#CELERY_BROKER_URL = env('CELERY_BROKER_URL')
 CELERY_BROKER_POOL_LIMIT = 8
 
 
 REMINDER_TIME = 30 # minutes
 
 # Twilio-infomation #
-twilio_number = os.environ['TWILIO_NUMBER']
-account_sid = os.environ['TWILIO_ACCOUNT_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN']
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
