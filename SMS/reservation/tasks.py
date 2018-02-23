@@ -10,7 +10,7 @@ import arrow
 
 from .models import Reservation
 
-account_sid = os.environ['MY_TWILIO_NUMBER']
+account_sid = os.environ['MY_TWILIO_ACCOUNT_SID']
 auth_token = os.environ['MY_TWILIO_AUTH_TOKEN']
 
 client = Client(account_sid, auth_token)
@@ -27,6 +27,6 @@ def send_sms_reminder(reservation_id):
 
     message = client.messages.create(
         body = body,
-        to ="+447481345316",
+        to =os.environ['MY_PHONE_NUMBER'], #Should be reservation.phone_number,
         from_ = os.environ['MY_TWILIO_NUMBER'],
     )
