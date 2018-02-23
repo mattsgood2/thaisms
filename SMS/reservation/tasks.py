@@ -25,8 +25,8 @@ def send_sms_reminder(reservation_id):
     reservation_time = arrow.get(reservation.time, reservation.time_zone)
     body = "Hi you have a Reservation @ {0} booking name of {1} today ".format(reservation.name, reservation_time.format('h:mm a'))
 
-    message = Client.message.create(
+    message = client.messages.create(
         body = body,
-        to = reservation.mobile_number,
+        to ="+447481345316",
         from_ = os.environ['MY_TWILIO_NUMBER'],
     )
