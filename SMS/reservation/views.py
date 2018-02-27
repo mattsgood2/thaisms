@@ -12,7 +12,11 @@ from .models import Reservation
 
 class ReservationListView(ListView):
     model = Reservation
-    queryset = Reservation.objects.order_by('-time')
+
+    #def get_queryset(self):
+        #queryset = super().get_queryset()
+        #return sorted(queryset, key=getattr('time.date'))
+    #queryset = Reservation.objects.order_by('-time')
 
 class ReservationDetailView(DetailView):
     model = Reservation

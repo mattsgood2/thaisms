@@ -19,6 +19,10 @@ class Reservation(models.Model):
     task_id = models.CharField(max_length=50, blank=True, editable=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
+
+    class Meta():
+        ordering = ['-time']
+
     def __str__(self):
         return ('Reservations {0} - {1}'.format(self.pk, self.name))
 
