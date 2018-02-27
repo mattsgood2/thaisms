@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import DetailView
@@ -11,6 +12,7 @@ from .models import Reservation
 
 class ReservationListView(ListView):
     model = Reservation
+    queryset = Reservation.objects.order_by('-time')
 
 class ReservationDetailView(DetailView):
     model = Reservation
