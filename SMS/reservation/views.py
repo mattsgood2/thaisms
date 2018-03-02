@@ -16,10 +16,11 @@ class ReservationListView(ListView):
     #def get_queryset(self):
         #queryset = super().get_queryset()
         #return sorted(queryset, key=getattr('time.date'))
-    #queryset = Reservation.objects.order_by('-time')
+    #queryset = Reservation.objects.get_latest_by('DateTimeField')
 
 class ReservationDetailView(DetailView):
     model = Reservation
+
 
 class ReservationCreateView(SuccessMessageMixin, CreateView):
     model = Reservation

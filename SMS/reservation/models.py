@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 #from django.utils.encoding import python_2_unicode_compatible
 from timezone_field import TimeZoneField
-
+from datetime import datetime
 import arrow
 
 class Reservation(models.Model):
@@ -13,7 +13,7 @@ class Reservation(models.Model):
     mobile_number = models.CharField(max_length=15)
     party_size = models.CharField(max_length=10)
     comments = models.TextField(max_length=255)
-    time = models.DateTimeField()
+    time = models.DateTimeField(default=datetime.now)
     time_zone = TimeZoneField(default='GMT')
 
     task_id = models.CharField(max_length=50, blank=True, editable=False)
@@ -21,7 +21,7 @@ class Reservation(models.Model):
 
 
     class Meta():
-        ordering = ['-time']
+        get_latest_by = [ '-name']
 
     def __str__(self):
         return ('Reservations {0} - {1}'.format(self.pk, self.name))

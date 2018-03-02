@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import environ
 
+
 root = environ.Path(__file__)
 env = environ.Env(DEBUG=(bool, False),)
 environ.Env.read_env()
@@ -82,6 +83,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sms.urls'
+
+
 
 TEMPLATES = [
     {
