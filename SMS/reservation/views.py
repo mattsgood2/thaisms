@@ -6,17 +6,12 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
 from .models import Reservation
-
 # Create your views here.
 
 
 class ReservationListView(ListView):
     model = Reservation
 
-    #def get_queryset(self):
-        #queryset = super().get_queryset()
-        #return sorted(queryset, key=getattr('time.date'))
-    #queryset = Reservation.objects.get_latest_by('DateTimeField')
 
 class ReservationDetailView(DetailView):
     model = Reservation

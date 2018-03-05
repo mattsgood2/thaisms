@@ -20,8 +20,9 @@ class Reservation(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
 
-    class Meta():
-        get_latest_by = [ '-name']
+    class Meta:
+        ordering = ['time']
+
 
     def __str__(self):
         return ('Reservations {0} - {1}'.format(self.pk, self.name))
