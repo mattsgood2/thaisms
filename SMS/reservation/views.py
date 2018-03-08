@@ -6,11 +6,20 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
 from .models import Reservation
+#from datetime import datetime
+from django.utils import timezone
+
+#now = timezone.now()
 # Create your views here.
 
 
 class ReservationListView(ListView):
     model = Reservation
+
+    old_reservation_delete = Reservation.objects.filter(time__lt = timezone.now())
+    for r in old_reservation_delete:
+        old_reservation_delete.delete()
+    reservation = Reservation.objects.all()
 
 
 class ReservationDetailView(DetailView):
