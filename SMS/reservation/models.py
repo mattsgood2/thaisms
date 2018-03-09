@@ -12,7 +12,7 @@ class Reservation(models.Model):
     name = models.CharField(max_length=150)
     mobile_number = models.CharField(max_length=15)
     party_size = models.CharField(max_length=10)
-    comments = models.TextField(max_length=255)
+    comments = models.TextField(max_length=255, blank=True)
     time = models.DateTimeField(default=datetime.now)
     time_zone = TimeZoneField(default='GMT')
 
