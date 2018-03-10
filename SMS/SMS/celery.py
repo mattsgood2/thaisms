@@ -20,7 +20,7 @@ def debug_task(self):
 
 #app.conf.broker_url = 'redis://localhost:6379/0'
 
-===========================================================
+#===========================================================
 # testing for deleting old Reservations #
 @app.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
