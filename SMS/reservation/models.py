@@ -45,6 +45,7 @@ class Reservation(models.Model):
 
         return result.id
 
+
     def save(self, *args, **kwargs):
         if self.task_id:
             celery_app.control.revoke(self.task_id)

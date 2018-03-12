@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import environ
-
+from django.utils import timezone
 
 root = environ.Path(__file__)
 env = environ.Env(DEBUG=(bool, False),)
@@ -32,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 
 #CELERY_BROKER_URL = env('CELERY_BROKER_URL')
@@ -40,7 +40,7 @@ CELERY_BROKER_POOL_LIMIT = 8
 
 
 REMINDER_TIME = 30 # minutes
-
+SEND_NOW = timezone.now()
 # Twilio-infomation #
 
 
