@@ -31,7 +31,7 @@ class Reservation(models.Model):
 
 
     def __str__(self):
-        return ('Reservations {0} - {1}'.format(self.pk, self.name))
+        return ('Reservations {0} - {1} - {2}'.format(self.pk, self.name, self.time))
 
     def get_absolute_url(self):
         return reverse('view_reservation', args=[str(self.id)])
@@ -43,8 +43,11 @@ class Reservation(models.Model):
             raise ValidationError("You cannot book a Reservation for the Past!, Please check your time. ")
 
         client = Client(account_sid, auth_token)
+        
+        confirm_booking = arrow.get(self.time, self.time_zone)
+        body = "CONFIRMED_BOOKING {0} at {1} ON ! ! ".format(self.name, confirm_booking.format('h:mm a'))
         message = client.messages.create(
-            body = "worked like this",
+            body = body,
             to =os.environ['MY_PHONE_NUMBER'], #Should be reservation.phone_number,
             from_ = os.environ['MY_TWILIO_NUMBER'],
             )
