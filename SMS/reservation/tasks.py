@@ -19,7 +19,7 @@ client = Client(account_sid, auth_token)
 def send_sms_reminder(reservation_id):
     try:
         reservation = Reservation.objects.get(pk=reservation_id)
-    except Reservation.DoesNotExits:
+    except Reservation.DoesNotExist:
         return
 
     reservation_time = arrow.get(reservation.time, reservation.time_zone)
