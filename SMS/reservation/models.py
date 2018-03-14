@@ -3,9 +3,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
 from django.db import models
-####################################
 from twilio.rest import Client
-#from django.utils.encoding import python_2_unicode_compatible
 from timezone_field import TimeZoneField
 from datetime import datetime
 import os
@@ -31,7 +29,7 @@ class Reservation(models.Model):
 
 
     def __str__(self):
-        return ('Reservations {0} - {1} - {2}'.format(self.pk, self.name, self.time))
+        return ('Reservations {0} - {1}'.format(self.pk, self.name))
 
     def get_absolute_url(self):
         return reverse('view_reservation', args=[str(self.id)])
@@ -71,5 +69,3 @@ class Reservation(models.Model):
         self.task_id = self.schedule_reminder()
 
         super(Reservation, self).save(*args, **kwargs)
-
-    #def send_sms_confirm(self):
