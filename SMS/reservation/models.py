@@ -43,7 +43,7 @@ class Reservation(models.Model):
         client = Client(account_sid, auth_token)
 
         confirm_booking = arrow.get(self.time, self.time_zone)
-        body = "CONFIRMED BOOKING FOR '{0}' DATE & TIME '{1}' PARTY OF '{2}', MANY THANKS. ".format(self.name, confirm_booking.format('DD-MM-YYYY @ HH:mm a '), self.party_size, confirm_booking.format('DD-MM-YYYY HH:mm a '))
+        body = "CONFIRMED BOOKING FOR\n '{0}'\n DATE & TIME '{1}'\n PARTY OF '{2}'\n MANY THANKS. ".format(self.name, confirm_booking.format('DD-MM-YYYY @ HH:mm a '), self.party_size, confirm_booking.format('DD-MM-YYYY HH:mm a '))
         message = client.messages.create(
             body = body,
             to =os.environ['MY_PHONE_NUMBER'], #Should be reservation.phone_number,

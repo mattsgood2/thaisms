@@ -15,6 +15,7 @@ import os
 import environ
 from django.utils import timezone
 
+
 root = environ.Path(__file__)
 env = environ.Env(DEBUG=(bool, False),)
 environ.Env.read_env()
