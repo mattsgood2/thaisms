@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404
+####
+from sms import celery_app
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import DetailView
@@ -7,8 +8,11 @@ from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
 from .models import Reservation
 from django.utils import timezone
+from .tasks import removing_old_res
 import arrow
 import os
+
+
 
 
 account_sid = os.environ['MY_TWILIO_ACCOUNT_SID']
@@ -17,10 +21,7 @@ auth_token = os.environ['MY_TWILIO_AUTH_TOKEN']
 class ReservationListView(ListView):
     model = Reservation
 
-    old_reservation_delete = Reservation.objects.filter(time__lt = timezone.now())
-    for r in old_reservation_delete:
-        old_reservation_delete.delete()
-    reservation = Reservation.objects.all()
+    removing_old_res()
 
 
 class ReservationDetailView(DetailView):
