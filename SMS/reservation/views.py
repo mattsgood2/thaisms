@@ -1,4 +1,3 @@
-####
 from sms import celery_app
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse_lazy
@@ -13,10 +12,6 @@ import arrow
 import os
 
 
-
-
-account_sid = os.environ['MY_TWILIO_ACCOUNT_SID']
-auth_token = os.environ['MY_TWILIO_AUTH_TOKEN']
 
 class ReservationListView(ListView):
     model = Reservation
