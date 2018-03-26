@@ -9,8 +9,6 @@ from .views import (
                     )
 
 urlpatterns = [
-    #url(r'^$', SmsView.as_view(), name=None),
-
     url(r'^$', ReservationListView.as_view(), name='list_reservation'),
     url(r'^(?P<pk>[0-9]+)$', ReservationDetailView.as_view(), name='view_reservation'),
 
