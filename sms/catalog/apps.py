@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class MenuConfig(AppConfig):
-    name = 'menu'
+class CatalogConfig(AppConfig):
+    name = 'catalog'
