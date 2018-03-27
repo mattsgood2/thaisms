@@ -18,7 +18,7 @@ class Menu(models.Model):
 
     class Meta:
         db_table = 'menu'
-        ordering = 'food_name'
+        ordering = ['food_name']
 
 
     def __str__(self):
