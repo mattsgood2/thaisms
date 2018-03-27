@@ -19,6 +19,7 @@ class Menu(models.Model):
     class Meta:
         db_table = 'menu'
         ordering = ['food_name']
+        verbose_name_plural = 'menu'
 
 
     def __str__(self):
@@ -26,3 +27,9 @@ class Menu(models.Model):
 
     def get_absolute_url(self):
         return ('catalog_menu', (), {'catalog_slug': self.slug })
+
+    def sale_price(self):
+        if self.old_price > self.price:
+            return self.price
+        else:
+            return None
