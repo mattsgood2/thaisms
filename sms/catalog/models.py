@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Menu(models.Model):
@@ -25,9 +26,14 @@ class Menu(models.Model):
     def __str__(self):
         return self.food_name
 
-    def get_absolute_url(self):
-        return ('catalog_menu', (), {'catalog_slug': self.slug })
 
+#############fit me as i know wrong but need to corret it ################
+    def get_absolute_url(self):
+        return reverse('views_detail', args=[str(self.id)])
+##########################################################################
+#       'catalog.menu.views', {'catalog_slug': self.slug }
+#        return reverse('view_reservation', args=[str(self.id)])
+##########################################################################
     def sale_price(self):
         if self.old_price > self.price:
             return self.price

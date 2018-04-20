@@ -1,9 +1,13 @@
 from django.conf.urls import url
-from catalog.views import MenuList
+from .views import (MenuList,
+                    MenuDetailView,
+                    )
 
 from . import views
 
 urlpatterns = [
     #url('', views.index, name='index'),
     url(r'^$', MenuList.as_view()),
+    url(r'^(?P<pk>[0-9]+)$', MenuDetailView.as_view(), name='view_detail'),
+    url(r'^(?P<slug>[-\w]+)/$', MenuDetailView.as_view(), name='menu'),
 ]

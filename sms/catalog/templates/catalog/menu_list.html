@@ -5,7 +5,7 @@
     <ul>
         {% for menu in object_list %}
             <li>{{ menu.food_name }}</li>
-            
+            <a href="{{ catalog.get_absolute_url }}">{{ menu.pk }}</a>
         {% endfor %}
     </ul>
 {% endblock %}
