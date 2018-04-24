@@ -27,9 +27,9 @@ class Menu(models.Model):
         return self.food_name
 
 
-#############fit me as i know wrong but need to corret it ################
+#############fix me as i know wrong but need to corret it ################
     def get_absolute_url(self):
-        return reverse('views_detail', args=[str(self.id)])
+        return reverse('views_details', args=[str(self.id)])
 ##########################################################################
 #       'catalog.menu.views', {'catalog_slug': self.slug }
 #        return reverse('view_reservation', args=[str(self.id)])

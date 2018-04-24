@@ -33,7 +33,7 @@ class Reservation(models.Model):
         return ('Reservations {0} - {1}'.format(self.pk, self.name))
 
     def get_absolute_url(self):
-        return reverse('view_reservation', args=[str(self.id)])
+        return reverse('reservations:view_reservation', args=[str(self.id)])
 
     def clean(self):
         reservation_time = arrow.get(self.time, self.time_zone.zone)

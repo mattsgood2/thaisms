@@ -26,9 +26,9 @@
         <dd>{{ reservation.time_zone }}</dd>
       </dl>
 
-      <a class="btn btn-default" href="{% url 'list_reservation' %}">Back</a>
-      <a class="btn btn-default" href="{% url 'edit_reservation' reservation.id %}">Edit</a>
-      <a class="btn btn-danger" data-method="delete" href="{% url 'delete_reservation' reservation.id %}">Delete</a>
+      <a class="btn btn-default" href="{% url 'reservations:list_reservation' %}">Back</a>
+      <a class="btn btn-default" href="{% url 'reservations:edit_reservation' reservation.id %}">Edit</a>
+      <a class="btn btn-danger" data-method="delete" href="{% url 'reservations:delete_reservation' reservation.id %}">Delete</a>
     </div>
   </div>
 {% endblock %}

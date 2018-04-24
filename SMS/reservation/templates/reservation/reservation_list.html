@@ -11,7 +11,7 @@
       </div>
 
       {% if not object_list %}
-        <p><strong>No upcoming reservations.</strong> Why not <a href="{% url 'new_reservation' %}">schedule one?</a>
+        <p><strong>No upcoming reservations.</strong> Why not <a href="{% url 'reservations:new_reservation' %}">schedule one?</a>
       {% endif %}
 
       <table class="table table-striped">
@@ -38,15 +38,15 @@
               <td>{{ reservation.time }}</td>
               <td>{{ reservation.created_on }}</td>
               <td>
-                <a class="btn btn-default btn-xs" href="{% url 'edit_reservation' reservation.pk %}">Edit</a>
-                <a class="btn btn-xs btn-danger" href="{% url 'delete_reservation' reservation.pk %}">Delete</a>
+                <a class="btn btn-default btn-xs" href="{% url 'reservations:edit_reservation' reservation.pk %}">Edit</a>
+                <a class="btn btn-xs btn-danger" href="{% url 'reservations:delete_reservation' reservation.pk %}">Delete</a>
               </td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
 
-      <a class="btn btn-primary" href="{% url 'new_reservation' %}">Create Reservation</a>
+      <a class="btn btn-primary" href="{% url 'reservations:new_reservation' %}">Create Reservation</a>
     </div>
   </div>
 {% endblock %}
