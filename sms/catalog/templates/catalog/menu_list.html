@@ -1,11 +1,15 @@
-{% extends "layout.html" %}
+{% extends "menu_layout.html" %}
 
 {% block content %}
     <h2>Menu</h2>
     <ul>
-        {% for menu in object_list %}
+        {% for menu in menu_page %}
+            <a href="{% url 'themenu:menulist' %}" class="btn btn-default">Back</a>
+            <a href="{{ menu.get_absolute_url }}">{{ menu.description }}</a>
             <li>{{ menu.food_name }}</li>
-            <a href="{{ menu.get_absolute_url }}">{{ menu.pk }}</a>
+            <li>{{ menu.price }}</li>
+
+
         {% endfor %}
     </ul>
 {% endblock %}
