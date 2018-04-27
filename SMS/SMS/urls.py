@@ -24,8 +24,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name = 'home.html'), name='home'),
-    url(r'^reservation/', include('reservation.urls', namespace='reservations')),
-    url(r'^menu/', include('catalog.urls', namespace='themenu')),
+    url(r'^reservation/', include('reservation.urls')),
+    url(r'^catalog/', include('catalog.urls')),
     url(r'^admin/', admin.site.urls),
 
 ]

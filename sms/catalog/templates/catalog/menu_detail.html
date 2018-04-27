@@ -1,23 +1,29 @@
-{% extends "menu_layout.html" %}
+{% extends "layout.html" %}
 
-{% block title %}{{ menu }}{% endblock title %}
+{% block title %}{{ MENU }}{% endblock title %}
 
 {% block content %}
   <div class="row">
     <div class="col-lg-9">
       <div class="page-header">
-        <h1>Menu</h1>
+        <h1>menu</h1>
       </div>
 
-      <h1>{{ menu.food_name }}</h1>
-      <p>{{ menu.description }}</p>
-      <p>{{ menu.price }}</p>
-      <p>{{ menu.bestselling }}</p>
+        <li>
+            {{ menu.food_name }}
+        </li>
+
+        <li>
+            {{ menu.description }}
+        </li>
+        <li>
+            {{ menu.price }}
+        </li>
 
 
-      <!--<a class="btn btn-default" href="{% url 'list_reservation' %}">Back</a>
-      <a class="btn btn-default" href="{% url 'edit_reservation' reservation.id %}">Edit</a>
-      <a class="btn btn-danger" data-method="delete" href="{% url 'delete_reservation' reservation.id %}">Delete</a>
-    </div>
-</div>-->
+        
+
+
+
+  </div>
 {% endblock %}

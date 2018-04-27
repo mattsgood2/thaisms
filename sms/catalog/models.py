@@ -29,7 +29,8 @@ class Menu(models.Model):
 
 #############fix me as i know wrong but need to corret it ################
     def get_absolute_url(self):
-        return reverse('themenu:menu_details', args=[str(self.id)])
+        return reverse('catalog:menu_detail', args=[str(self.id)])
+
 ##########################################################################
 #       'catalog.menu.views', {'catalog_slug': self.slug }
 #        return reverse('view_reservation', args=[str(self.id)])

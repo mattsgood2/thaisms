@@ -10,7 +10,7 @@ from django.http import HttpResponse
 
 class MenuListView(ListView):
     model = Menu
-    context_object_name = 'menu_page'
+    #context_object_name = 'menu_page'
 
 class MenuDetailView(DetailView):
     model = Menu
