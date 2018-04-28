@@ -5,9 +5,9 @@
     <ul>
         {% for menu in object_list %}
 
-            <a href="{{ menu.get_absolute_url }}">{{ menu.pk }}</a>
-            <li>{{ menu.food_name }}</li>
-            
+            <a href="{{ menu.get_absolute_url }}">
+            <li>{{ menu.food_name }}</li></a>
+
 
 
         {% endfor %}
