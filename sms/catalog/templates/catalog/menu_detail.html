@@ -1,29 +1,21 @@
-{% extends "layout.html" %}
+{% extends "menu_layout.html" %}
 
-{% block title %}{{ MENU }}{% endblock title %}
+{% block title %}{{ menu }}{% endblock title %}
 
 {% block content %}
   <div class="row">
     <div class="col-lg-9">
       <div class="page-header">
-        <h1>menu</h1>
+        <h1>{{menu.food_name}}</h1>
       </div>
-
-        <li>
-            {{ menu.food_name }}
-        </li>
 
         <li>
             {{ menu.description }}
         </li>
         <li>
-            {{ menu.price }}
+            £{{ menu.price }}
         </li>
-
-
-        
-
-
+            <img src="{{ menu.image.url }}">
 
   </div>
 {% endblock %}
