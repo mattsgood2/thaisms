@@ -8,14 +8,16 @@
       <div class="page-header">
         <h1>{{menu.food_name}}</h1>
       </div>
-
-        <li>
-            {{ menu.description }}
-        </li>
-        <li>
-            £{{ menu.price }}
-        </li>
-            <img src="{{ menu.image.url }}">
-
-  </div>
+            <li>
+                {{ menu.description }}
+            </li>
+            <li>
+                £{{ menu.price }}
+            </li>
+            {% if menu.image %}
+                <img src="{{ menu.image.url }}">
+                {% else %}
+                <img src="/media/awi.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
+        </div>
+        {% endif %}
 {% endblock %}

@@ -6,9 +6,18 @@
         {% for menu in object_list %}
 
             <a href="{{ menu.get_absolute_url }}">
-            <li>{{ menu.food_name }}</li></a>
-
-
+            <p>
+                {{ menu.food_name }}
+            </p>
+            {% if menu.image %}
+            <img src="{{ menu.image.url }}">
+            {% else %}
+            <p>
+                <img src="/media/awi.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
+                <strong>Awaiting Image</strong>
+            </p>
+            {%endif%}
+            </a>
 
         {% endfor %}
     </ul>
