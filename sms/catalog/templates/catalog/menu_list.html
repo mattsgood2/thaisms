@@ -1,24 +1,39 @@
 {% extends "menu_layout.html" %}
 
 {% block content %}
-    <h2>Menu TESTING</h2>
-    <ul>
-        {% for menu in object_list %}
+    <h2>Menu</h2>
+     {% for menu in object_list %}
+     <div class="container">
 
+       <div class="row">
+         <div class="col">
+             {% if menu.image %}
+             <img class="card-img-top img-fluid" src="{{ menu.image.url }}" alt="Card image cap">
+           {{ menu.food_name }}
+         </div>
+
+       </div>
+     </div>
+
+{% endif %}
+{% endfor %}
+        <!-- <div class="row">
+            <div class="col-lg">
             <a href="{{ menu.get_absolute_url }}">
-            <p>
-                {{ menu.food_name }}
-            </p>
-            {% if menu.image %}
-            <img src="{{ menu.image.url }}">
-            {% else %}
-            <p>
-                <img src="/media/awi.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
-                <strong>Awaiting Image</strong>
-            </p>
-            {%endif%}
-            </a>
 
-        {% endfor %}
-    </ul>
+                {{ menu.food_name }}
+                 One of three columns
+            </div>
+                {% if menu.image %}
+                    <img src="{{ menu.image.url }}">
+                    {% else %}
+                    <p>
+                        <img src="/media/awi.jpg" alt="HTML5 Icon" style="width:160px;height:100px;">
+                        <strong>Awaiting Image</strong>
+                    </p>
+            {% endif %}
+            </a>
+        </div> -->
+
+
 {% endblock %}
