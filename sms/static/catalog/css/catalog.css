@@ -1,0 +1,12 @@
+img {
+
+  max-width: 500px;
+  height: 300px;
+}
+
+tbody {
+    background-color: blue;
+}
+p {
+    color: red;
+}
