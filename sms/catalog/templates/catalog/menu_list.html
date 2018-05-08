@@ -4,7 +4,27 @@
 
 <div class="row">
 {% for menu in object_list %}
-    {% if forloop.counter0|divisibleby:3 %}
+    <div class="col-md-3">{{menu.food_name}}
+        {% if menu.image %}
+     <img src="{{ menu.image.url }}" class="img-fluid" alt="Card image cap" >
+        {% endif %}
+    </div>
+
+{% endfor %}
+{% endblock %}
+
+
+
+<!-- <div class="row">
+{% for menu in object_list %}
+    <div class="col-md-3">{{menu.food_name}}</div>
+
+{% endfor %} -->
+
+
+<!-- <div class="row">
+{% for menu in object_list %}
+    {% if forloop.counter0|divisibleby:4 %}
         </div><br><div class="row">
     {% endif %}
         <div class="col-4">
@@ -15,6 +35,12 @@
 </p>
         </div>
         {%endif%}
-{% endfor %}
+{% endfor %} -->
 
-{% endblock %}
+<!-- {% for row in rows %}
+<div class="row">
+    {% for menu in row %}
+    <div class="col-md-3">{{ menu.food_name }}</div>
+    {% endfor %}
+</div>
+    {% endfor %} -->
