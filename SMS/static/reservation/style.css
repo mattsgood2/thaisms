@@ -8,3 +8,7 @@ background-color {
 a {
     color: red;
 }
+img {
+  max-width: 500px;
+  height: 300px;
+}
