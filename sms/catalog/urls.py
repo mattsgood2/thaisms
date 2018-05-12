@@ -9,11 +9,10 @@ app_name = 'catalog'
 urlpatterns = [
     #url('', views.index, name='index'),
     url(r'^$', MenuListView.as_view(), name='menu_list'),
-    url(r'^(?P<pk>[0-9]+)$', MenuDetailView.as_view(), name='menu_detail'),
+    #url(r'^(?P<pk>[0-9]+)$', MenuDetailView.as_view(), name='menu_detail'),
 
-    url(r'^menu/(?P<menu_slug>[-\w]+)/$', MenuDetailView.as_view(), name='menu'),
+    url(r'^(?P<slug>[-\w]+)/$', MenuDetailView.as_view(), name='menu_detail'),
     #url(r'^list/$', ReservationListView.as_view(), name='list_reservation'),
     #url(r'^menu/(?P<menu_slug>[-\w]+)/$',
+    #url(r'^(?P<slug>[-\w]+)/$', TaskView.as_view(), name='detail'),
 ]
-
-#url(r'^(?P<slug>[-\w]+)/$', MenuDetailView.as_view(), name='menu'),
