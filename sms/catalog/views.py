@@ -14,3 +14,4 @@ class MenuListView(ListView):
 
 class MenuDetailView(DetailView):
     model = Menu
+    
