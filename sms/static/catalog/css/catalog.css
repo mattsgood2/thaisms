@@ -1,12 +1,40 @@
-img {
+ /* {
+    background-image: url("../../../media/About_Thai_Manthana_Cuisine_psvclvT.png");
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    position: relative;
+     background-color: #cccccc;
+     opacity: 0.5;
+     z-index: 1;
+     -webkit-mask-image: linear-gradient(to bottom, transparent 9%, black 80%);
+} */
 
-  max-width: 500px;
-  height: 300px;
-}
 
-tbody {
-    background-color: blue;
-}
-p {
-    color: red;
+/* h1{
+        color: red;
+        z-index: -1;
+
+    position:absolute;
+} */
+/* .thebody{
+    background-image: url("../../../media/About_Thai_Manthana_Cuisine_psvclvT.png");
+    background-size: cover;
+
+} */
+
+/* .thebody{
+        display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: url("../../../media/About_Thai_Manthana_Cuisine_psvclvT.png");
+		width: 100%;
+		height: 100%;
+		opacity : 0.2;
+} */
+
+body, .det{
+
+    background: rgba(189, 50, 50);
 }
