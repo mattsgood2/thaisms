@@ -10,6 +10,7 @@ urlpatterns = [
     #url('', views.index, name='index'),
     url(r'^$', MenuListView.as_view(), name='menu_list'),
     #url(r'^(?P<pk>[0-9]+)$', MenuDetailView.as_view(), name='menu_detail'),
-    url(r'^(?P<slug>[-\w]+)/$', MenuDetailView.as_view(), name='menu_detail'),
+    url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', MenuDetailView.as_view(), name='menu_detail'),
 
 ]
+ # url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.product_detail, name='product_detail'),

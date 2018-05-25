@@ -7,6 +7,7 @@
 {% block content %}
 <div class="row">
 {% for menu in object_list %}
+<a href="{{ menu.get_absolute_url }}">
     <div class="col-md-3" >{{menu.food_name}}
         {% if menu.image %}
      <img src="{{ menu.image.url }}" class="img-fluid" alt="Card image cap" id="try">
@@ -15,8 +16,8 @@
             awaiting image
         </p>
         {% endif %}
-        <a href="{{ menu.get_absolute_url }}">
-        <button type="button" class="btn btn-primary">Buy</button>
+
+        <!-- <button type="button" class="btn btn-primary">Buy</button> -->
         </a>
     </div>
 

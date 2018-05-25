@@ -57,11 +57,14 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'reservation.apps.ReservationConfig',
     'catalog.apps.CatalogConfig',
+    'cart.apps.CartConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    ##
+    'django.contrib.sessions',
     # whitenoise runs in localhost #
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
@@ -167,3 +170,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CART_SESSION_ID = 'cart'

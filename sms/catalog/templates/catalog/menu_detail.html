@@ -6,25 +6,39 @@
 {% block title %}{{ menu }}{% endblock title %}
 
 {% block content %}
-<div class="det">
+
+<div class="container">
+      <div class="row" style="margin-top: 6%">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+              <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-6 text-right">
+                            <img src="{% if menu.image %} {{ menu.image.url }}{% endif %}" alt="..." style="height: 170px; width: auto">
+                        </div>
+                        <div class="col-md-6" style="padding-left: 20px">
+                            <h3>{{ menu.food_name }}</h3>
+                            <h6><a href="{{ menu.get_absolute_url }}">{{ menu }}</a></h6>
+                            <p class="text-muted">Price. {{ menu.price }}</p>
+                            <form action="{% url "cart:cart_add" menu.id %}" method="post">
+                                {% csrf_token %}
+                                {{ cart_product_form }}
+                                <input type="submit" value="add to cart" class="btn btn-primary">
+                            </form>
+                            <p>{{ menu.description|safe|linebreaksbr }}</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
 
 
-  <div class="row">
-    <div class="col-lg-9">
-      <div class="page-header">
-        <h1>{{menu.food_name}}</h1>
-      </div>
-            <li>
-                {{ menu.description }}
-            </li>
-            <li>
-                £{{ menu.price }}
-            </li>
-            {% if menu.image %}
-                <img src="{{ menu.image.url }}">
-                {% else %}
-                <img src="/media/awi.jpg" alt="awaiting image icon" style="width:160px;height:100px;">
-        </div>
-        </div>
-        {% endif %}
+          </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
 {% endblock %}
