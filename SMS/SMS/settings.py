@@ -63,8 +63,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    ##
-    'django.contrib.sessions',
     # whitenoise runs in localhost #
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',

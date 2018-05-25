@@ -34,7 +34,7 @@ class Cart(object):
     def __iter__(self):
         menu_ids = self.cart.keys()
         menus = Menu.objects.filter(id__in=menu_ids)
-        for menu in menu:
+        for menu in menus:
             self.cart[str(menu.id)]['menu'] = menu
 
         for item in self.cart.values():
