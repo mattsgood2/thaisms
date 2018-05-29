@@ -11,23 +11,22 @@ class MenuListView(ListView):
 
 class MenuDetailView(DetailView):
     model = Menu
-    cart_menu_form = CartAddMenuForm()
-    # menu = get_object_or_404(Menu, id=id, slug=slug)
-# def product_list(request, category_slug=None):
-#     category = None
-#     menu = Menu.objects.all()
-#     # products = Product.objects.filter(available=True)
-#     if menu_slug:
-#         menu = get_object_or_404(Menu, slug=menu_slug)
-#         menu = Menu.objects.filter(menu=menu)
-#
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cart_menu_form'] = CartAddMenuForm()
+        return context
+
+
+
+# def menu_detail(request, id, slug):
+#     menu = get_object_or_404(Menu, id=id, slug=slug, available=True)
+#     cart_menu_form = CartAddMenuForm()
 #     context = {
 #         'menu': menu,
-        # 'categories': categories,
-        # 'products': products
-    # }
-    # return render(request, 'catalog/product/list.html', context)
-
+#         'cart_product_form': cart_product_form
+#     }
+#     return render(request, 'catalog/menu_detail.html', context)
 
 ####################################
 #def index(request):

@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-6" style="padding-left: 20px">
                             <h3>{{ menu.food_name }}</h3>
-                            <h6><a href="{{ menu.get_absolute_url }}">{{ menu }}</a></h6>
+                            <!-- <h6><a href="{{ menu.get_absolute_url }}">{{ menu }}</a></h6> -->
                             <p class="text-muted">Price. {{ menu.price }}</p>
                             <form action="{% url "cart:cart_add" menu.id %}" method="post">
                                 {% csrf_token %}
