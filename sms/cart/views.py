@@ -21,7 +21,7 @@ def cart_add(request, menu_id):
 
 def cart_remove(request, menu_id):
     cart = Cart(request)
-    product = get_object_or_404(Menu, id=menu_id)
+    menu = get_object_or_404(Menu, id=menu_id)
     cart.remove(menu)
     return redirect('cart:cart_detail')
 
