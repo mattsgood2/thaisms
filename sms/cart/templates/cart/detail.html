@@ -1,7 +1,7 @@
 {% load static from staticfiles %}
-{% block title %}
+<!-- {% block title %}
     Your Shopping Cart
-{% endblock %}
+{% endblock %} -->
 
 
 {% block content %}
@@ -12,7 +12,7 @@
                 {% with total_items=cart|length %}
                     {% if cart|length > 0 %}
                         My Shopping Order:
-                        <a href="{% url "cart:cart_detail" %}" style="color: #ffffff">
+                        <a href="{% url "cart:cart_detail" %}" style="color: #c11b1b">
                             {{ total_items }} item {{ total_items|pluralize }}, Price. {{ cart.get_total_price }}
                         </a>
                         {% else %}
@@ -41,7 +41,7 @@
                                     <img src="{% if menu.image %} {{ menu.image.url }} {% else %} {% static 'img/awi.png' %} {% endif %}" alt="..." style="height: 130px; width: auto">
                                 </a>
                             </td>
-                            <td>{{ menu.name }}</td>
+                            <td>{{ menu.food_name }}</td>
                             <td>
                                 <form action="{% url "cart:cart_add" menu.id %}" method="post">
                                     {% csrf_token %}
