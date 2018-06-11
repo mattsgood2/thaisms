@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'django_forms_bootstrap',
     'timezone_field',
+    'paypal.standard.ipn',
 
 ]
 
@@ -170,3 +171,7 @@ MEDIA_URL = '/media/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CART_SESSION_ID = 'cart'
+
+#paypal
+PAYPAL_RECEIVER_EMAIL = 'mattsgood2@aol.com'
+PAYPAL_TEST = True

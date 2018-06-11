@@ -67,7 +67,8 @@
             </table>
         <p class="text-right">
             <a href="{% url "catalog:menu_list" %}" class="btn btn-default">Continue Shopping</a>
-            <a href="" class="btn btn-primary">Checkout</a>
+            {{ form.render }}
+            <a href="#" class="btn btn-primary">Checkout</a>
         </p>
         </div>
     </div>
