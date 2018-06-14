@@ -29,6 +29,6 @@ def cart_detail(request):
     cart = Cart(request)
     for item in cart:
         item['update_quantity_form'] = CartAddMenuForm(initial={'quantity': item['quantity'], 'update': True})
-    # return render(request, 'cart/detail.html', {'cart': cart})
-    request.session['menu_id'] = menu.id
-    return redirect(reverse('payment:process'))
+    return render(request, 'cart/detail.html', {'cart': cart})
+    # request.session['menu_id'] = menu.id
+    # return redirect(reverse('payment:process'))
