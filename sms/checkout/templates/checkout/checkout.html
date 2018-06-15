@@ -1,9 +1,9 @@
 {% load static from staticfiles %}
 
 {% block content %}
-<h1>Checkout</h1>
-<!-- {% for cart_checkout in object_list %} -->
-<h2>{{menu.food_name }}t</h2>
-<!-- <h2>{{menu.price }}p</h2> -->
-{% endfor %}
+<form action="/your-address" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
 {% endblock content %}

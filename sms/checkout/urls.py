@@ -4,6 +4,6 @@ from . import views
 app_name = "checkout"
 
 urlpatterns = [
-    url(r'^$', views.checkout, name='checkout'),
+    url(r'^address/$', views.get_address, name='checkout_form'),
 
     ]
