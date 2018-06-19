@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
     url(r'^cart/', include('cart.urls')),
     url(r'^checkout/', include('checkout.urls')),
+    url(r'^payment/', include('payment.urls')),
     url(r'^admin/', admin.site.urls),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

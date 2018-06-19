@@ -5,17 +5,21 @@ from cart.cart import Cart
 # from cart.views import cart_detail
 # from django.views.generic.list import ListView
 
-
+from catalog.models import Menu
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-
+from cart.cart import Cart
 from .forms import GetAddress
 
 def get_address(request):
+    cart = Cart(request)
+    # cart_show = str(cart)
+    # menu = get_object_or_404(Menu, id=menu_id)
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
+        for item in cart:
         # create a form instance and populate it with data from the request:
-        form = GetAddress(request.POST)
+            form = GetAddress(request.POST)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -27,7 +31,7 @@ def get_address(request):
     else:
         form = GetAddress()
 
-    return render(request, 'checkout/checkout.html', {'form': form})
+    return render(request, 'checkout/checkout.html', {'cart':cart, 'form': form})
 # def checkout(request):
 #     cart = Cart(request)
 #     menu = get_object_or_404(Menu)
