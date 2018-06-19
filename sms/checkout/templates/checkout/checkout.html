@@ -3,18 +3,19 @@
 {% block content %}
 <h1><strong>Checkout</strong></h1>
 {% for item in cart %}
-    <!-- {% with menu=item.menu  %} -->
-    <p><strong>{{ menu.food_name }}</strong></p>
+    {% with menu=item.menu  %}
+    <p><strong>{{ menu.food_name }} - £{{ menu.price }}</strong></p>
 
-<p>
-    PayPal Button here
-</p>
 
-<!-- {% endwith %} -->
+{% endwith %}
 {% endfor %}
+<p><strong>£{{ cart.get_total_price}}</strong></p>
 <form action="/your-address" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit" />
 </form>
+<p>
+    PayPal Button here
+</p>
 {% endblock content %}
