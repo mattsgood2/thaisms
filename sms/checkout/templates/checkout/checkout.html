@@ -10,7 +10,7 @@
 {% endwith %}
 {% endfor %}
 <p><strong>£{{ cart.get_total_price}}</strong></p>
-<form action="/your-address" method="post">
+<form action="/payment/process/" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit" />

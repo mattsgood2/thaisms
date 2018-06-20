@@ -6,7 +6,6 @@ from .forms import GetAddress
 
 def get_address(request):
     cart = Cart(request)
-
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         for item in cart:
@@ -17,8 +16,8 @@ def get_address(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
-
+            # return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect(reverse('payment:process'))
     # if a GET (or any other method) we'll create a blank form
     else:
         form = GetAddress()

@@ -5,7 +5,7 @@
 {% block title %} Menu {% endblock title %}
 
 {% block content %}
-<a href="{% url "cart:cart_detail" %}">MY CART</a>
+<a href="{% url "cart:cart_detail" %}"><button>MY CART</button></a>
 <div class="row">
 {% for menu in object_list %}
 <a href="{{ menu.get_absolute_url }}">
