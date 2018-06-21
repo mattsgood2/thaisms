@@ -57,6 +57,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'reservation.apps.ReservationConfig',
     'catalog.apps.CatalogConfig',
+    'payment.apps.PaymentConfig',
     'checkout.apps.CheckoutConfig',
     'cart.apps.CartConfig',
     'django.contrib.admin',
