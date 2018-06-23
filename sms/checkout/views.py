@@ -13,7 +13,7 @@ def get_address(request):
             form = GetAddress(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            request.session['menu_id'] = menu.id
+            # request.session['menu_id'] = menu.id
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
