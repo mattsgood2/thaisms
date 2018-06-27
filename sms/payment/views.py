@@ -18,17 +18,15 @@ def payment_canceled(request):
 
 
 def payment_process(request):
-    cart = Cart(request)
-
-    for item in cart:
-        print(item)
-
-
+    cart = request.session.get(settings.CART_SESSION_ID)
+    carts = Cart(request)
+    # menu = cart.menu
+    print(cart)
 
     paypal_dict = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
-        "amount": '%.2f' % cart.get_total_price(),
-        "item_name": "Menu {}" .format(item),
+        "amount": '%.2f' % carts.get_total_price(),
+        "item_name": "Menu {}" .format(cart), #menu_id = str(menu.id)
         "invoice": "unique-invoice-id",
         "currency_code": 'GBP',
         "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
@@ -39,7 +37,7 @@ def payment_process(request):
 
     # Create the instance.
     form = PayPalPaymentsForm(initial=paypal_dict)
-    context = {"item":item, "form": form}
+    context = {"cart":cart, "form": form}
     # print (cart)
     return render(request, 'payment/process.html', context)
 
