@@ -22,7 +22,7 @@ def payment_process(request):
     cart = request.session.get(settings.CART_SESSION_ID)
     # menu = get_object_or_404(Menu)
     carts = Cart(request)
-    for menu_id in cart:
+    for item in carts:
 
 
     # for food_name in cart:
@@ -31,7 +31,7 @@ def payment_process(request):
         # menu_id = get_object_or_404(Menu)
         # item = menu_food_name(pk=menu_id)
         # item['food_name']
-        print(menu_id)
+        print(item['menu'])
     # for item in menu_id:
     # for item in menu:
     #     item['food_name']

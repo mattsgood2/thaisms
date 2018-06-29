@@ -25,7 +25,7 @@ class Cart(object):
         self.session[settings.CART_SESSION_ID] = self.cart
         self.session.modified = True
 
-    def remove(self,menu):
+    def remove(self, menu):
         menu_id = str(menu.id)
         if menu_id in self.cart:
             del self.cart[menu_id]
