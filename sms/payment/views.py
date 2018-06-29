@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from paypal.standard.forms import PayPalPaymentsForm
 from catalog.models import Menu
 from cart.cart import Cart
+from cart import cart
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 
@@ -19,9 +20,27 @@ def payment_canceled(request):
 
 def payment_process(request):
     cart = request.session.get(settings.CART_SESSION_ID)
+    # menu = get_object_or_404(Menu)
     carts = Cart(request)
-    # menu = cart.menu
-    print(cart)
+    for menu_id in cart:
+
+
+    # for food_name in cart:
+        # menu_id = menu
+        # menu_id = menu.food_name
+        # menu_id = get_object_or_404(Menu)
+        # item = menu_food_name(pk=menu_id)
+        # item['food_name']
+        print(menu_id)
+    # for item in menu_id:
+    # for item in menu:
+    #     item['food_name']
+    # menu = get_object_or_404(Menu, menu_pk=settings.CART_SESSION_ID.pk)
+    # for pk in settings.CART_SESSION_ID:
+    #     menu.pk = settings.CART_SESSION_ID.pk
+    #     return pk
+        # print (cart)
+        # print(item, pk=menu.food_name)
 
     paypal_dict = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
