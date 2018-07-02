@@ -24,7 +24,8 @@ def payment_process(request):
     for price in carts:
 
         # print(price['quantity'])
-        print('your total quantity is {}'.format(price['quantity']))
+        # print('your total quantity is {} and menu is {}, total is {}'.format(price['quantity'],price['menu'],price['total_price']))
+        print('Your Order is {},'.format(price['menu']))
         # print(price)
 
 

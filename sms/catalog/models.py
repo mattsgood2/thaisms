@@ -24,9 +24,10 @@ class Menu(models.Model):
 
 
     def __str__(self):
-        return ('Menu {0} {1}'.format(self.food_name, self.pk))
-
-
+        # return ('Menu {0} {1}'.format(self.food_name, self.pk))
+        # return self.food_name, self.price, self.quantity
+        # return '%s %s' % (self.food_name, self.price)
+        return ('{0}, "£{1}" '.format(self.food_name, self.price))
 #############fix me as i know wrong but need to corret it ################
     def get_absolute_url(self):
         #return reverse('catalog:menu_detail', args=[str(self.id)])
