@@ -32,7 +32,7 @@ def payment_process(request):
     paypal_dict = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
         "amount": '%.2f' % carts.get_total_price(),
-        "item_name": "{}" .format(cart), #menu_id = str(menu.id)
+        "item_name": "{}" .format(price), #menu_id = str(menu.id)
         "invoice": "unique-invoice-id",
         "currency_code": 'GBP',
         "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
@@ -43,7 +43,7 @@ def payment_process(request):
 
     # Create the instance.
     form = PayPalPaymentsForm(initial=paypal_dict)
-    context = {"cart":cart, "form": form}
+    context = {"price":price, "form": form}
     # print (cart)
     return render(request, 'payment/process.html', context)
 
