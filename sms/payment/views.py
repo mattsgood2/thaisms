@@ -20,32 +20,18 @@ def payment_canceled(request):
 
 def payment_process(request):
     cart = request.session.get(settings.CART_SESSION_ID)
-    # menu = get_object_or_404(Menu)
     carts = Cart(request)
-    for item in carts:
+    for price in carts:
 
+        # print(price['quantity'])
+        print('your total quantity is {}'.format(price['quantity']))
+        # print(price)
 
-    # for food_name in cart:
-        # menu_id = menu
-        # menu_id = menu.food_name
-        # menu_id = get_object_or_404(Menu)
-        # item = menu_food_name(pk=menu_id)
-        # item['food_name']
-        print(item['menu'])
-    # for item in menu_id:
-    # for item in menu:
-    #     item['food_name']
-    # menu = get_object_or_404(Menu, menu_pk=settings.CART_SESSION_ID.pk)
-    # for pk in settings.CART_SESSION_ID:
-    #     menu.pk = settings.CART_SESSION_ID.pk
-    #     return pk
-        # print (cart)
-        # print(item, pk=menu.food_name)
 
     paypal_dict = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
         "amount": '%.2f' % carts.get_total_price(),
-        "item_name": "Menu {}" .format(cart), #menu_id = str(menu.id)
+        "item_name": "{}" .format(cart), #menu_id = str(menu.id)
         "invoice": "unique-invoice-id",
         "currency_code": 'GBP',
         "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
