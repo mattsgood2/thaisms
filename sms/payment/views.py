@@ -22,13 +22,24 @@ def payment_process(request):
     cart = request.session.get(settings.CART_SESSION_ID)
     carts = Cart(request)
 
-    for price in carts:
-        # print(price['quantity'])
-        # print('your total quantity is {} and menu is {}, total is {}'.format(price['quantity'],price['menu'],price['total_price']))
-        print('Your Order is {},'.format(price['menu']))
-        # print(price)
-        # def theloop(self):
 
+    # for items in cart :
+    #
+    #     print (items)
+
+    for price in carts:
+    #     # Cart.objects.all():
+    #     # print(price)
+    #     # print(price['menu'])
+    #     # print('your total quantity is {} and menu is {}, total is {}'.format(price['quantity'],price['menu'],price['total_price']))
+    #     # print('Your Order is {},'.format(cart))
+    #     print(cart)
+        print('{}'.format(price['price']))
+
+
+        # def theloop(self):
+    # zipped =zip(carts)
+    # list(zipped)
 
     paypal_dict = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
