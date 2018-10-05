@@ -19,13 +19,16 @@ def payment_canceled(request):
 
 
 def payment_process(request):
-    cart = request.session.get(settings.CART_SESSION_ID)
+    # cart = request.session.get(settings.CART_SESSION_ID)
     carts = Cart(request)
 
 
     # for items in cart :
     #
     #     print (items)
+
+    # for item in cart:
+    #     print(item)
 
     for price in carts:
     #     # Cart.objects.all():
@@ -34,8 +37,9 @@ def payment_process(request):
     #     # print('your total quantity is {} and menu is {}, total is {}'.format(price['quantity'],price['menu'],price['total_price']))
     #     # print('Your Order is {},'.format(cart))
     #     print(cart)
-        print('{}'.format(price['price']))
-
+        # print('{}'.format(price))
+        print(price['menu'])
+        
 
         # def theloop(self):
     # zipped =zip(carts)
