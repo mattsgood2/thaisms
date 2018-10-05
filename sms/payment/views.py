@@ -19,7 +19,8 @@ def payment_canceled(request):
 
 
 def payment_process(request):
-    # cart = request.session.get(settings.CART_SESSION_ID)
+    cart = request.session.get(settings.CART_SESSION_ID)
+    print (cart)
     carts = Cart(request)
 
     for price in carts:
