@@ -13,11 +13,12 @@ def get_address(request):
             form = GetAddress(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            address = form.cleaned_data['address']
-
+            # text = form.cleaned_data['your_address']
+            # args = {'form': form, 'text':text}
             return redirect(reverse('payment:process'))
+            # return render(request, 'payment:process', {'args': args})
     # if a GET (or any other method) we'll create a blank form
-    # else:
+    else:
         form = GetAddress()
 
     return render(request, 'checkout/checkout.html', {'cart':cart, 'form': form})
