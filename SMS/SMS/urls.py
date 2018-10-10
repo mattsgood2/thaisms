@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 
-
+### will not need below once updated to django 2.0 ##
 from django.conf.urls import include, url
+#########################################
+from django.urls import include, path
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
@@ -32,6 +34,7 @@ urlpatterns = [
     url(r'^cart/', include('cart.urls')),
     url(r'^checkout/', include('checkout.urls')),
     url(r'^payment/', include('payment.urls')),
+    path('takeouts/', include('takeouts.urls')),
     url(r'^admin/', admin.site.urls),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

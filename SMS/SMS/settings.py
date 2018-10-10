@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'checkout.apps.CheckoutConfig',
     'cart.apps.CartConfig',
+    'takeouts.apps.TakeoutsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
