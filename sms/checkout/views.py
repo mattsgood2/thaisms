@@ -13,8 +13,8 @@ def get_address(request):
     form = YourAddressForm(request.POST)
         # check whether it's valid:
     if form.is_valid():
-        form.save()
-        text = form.cleaned_data['youraddress']
+        # form.save()
+        # text = form.cleaned_data['youraddress']
             # args = {'form': form, 'text':text}
         return redirect(reverse('payment:process'))
             # return render(request, 'payment:process', {'args': args})
