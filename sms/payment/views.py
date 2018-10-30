@@ -6,6 +6,9 @@ from cart.cart import Cart
 from cart import cart
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
+# from django import forms
+# from checkout.forms import forms
+# from checkout.views import get_address
 
 
 @csrf_exempt
@@ -25,6 +28,12 @@ def payment_process(request):
 
         print('THANKS, TOTAL ORDER COST £{}'.format(price['total_price']))
 
+###################################################
+# def youraddress(request):
+#     adder = request.get(youraddress)
+#     print(adder)
+
+####################################################
 
     paypal_dict = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
