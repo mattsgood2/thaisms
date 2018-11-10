@@ -1,5 +1,7 @@
 from django.conf.urls import url
-
+##
+# from django.urls import path
+##
 from reservation.views import (
                     ReservationListView,
                     ReservationCreateView,
@@ -17,6 +19,5 @@ urlpatterns = [
     url(r'^new/$', ReservationCreateView.as_view(), name='new_reservation'),
     url(r'^(?P<pk>[0-9]+)/edit$', ReservationUpdateView.as_view(), name='edit_reservation'),
     url(r'^(?P<pk>[0-9]+)/delete$', ReservationDeleteView.as_view(), name='delete_reservation'),
-
 
 ]

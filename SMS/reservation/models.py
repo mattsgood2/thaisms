@@ -41,24 +41,24 @@ class Reservation(models.Model):
         if reservation_time < arrow.utcnow():
             raise ValidationError("You cannot book a Reservation for the Past!, Please check your time. ")
 
-        client = Client(account_sid, auth_token)
-
-        confirm_booking = arrow.get(self.time, self.time_zone)
-        body = "CONFIRMED BOOKING FOR\n '{0}'\n DATE & TIME '{1}'\n PARTY OF '{2}'\n MANY THANKS. ".format(self.name, confirm_booking.format('DD-MM-YYYY @ HH:mm a '), self.party_size, confirm_booking.format('DD-MM-YYYY HH:mm a '))
-        message = client.messages.create(
-            body = body,
-            to =os.environ['MY_PHONE_NUMBER'], #Should be reservation.phone_number,
-            from_ = os.environ['MY_TWILIO_NUMBER'],
-            )
-
-    def schedule_reminder(self):
-        reservation_time = arrow.get(self.time, self.time_zone)
-        reminder_time = reservation_time.replace(minutes=-settings.REMINDER_TIME)
-
-        from .tasks import send_sms_reminder
-        result = send_sms_reminder.apply_async((self.pk,), eta=reminder_time)
-
-        return result.id
+    #     client = Client(account_sid, auth_token)
+    #
+    #     confirm_booking = arrow.get(self.time, self.time_zone)
+    #     body = "CONFIRMED BOOKING FOR\n '{0}'\n DATE & TIME '{1}'\n PARTY OF '{2}'\n MANY THANKS. ".format(self.name, confirm_booking.format('DD-MM-YYYY @ HH:mm a '), self.party_size, confirm_booking.format('DD-MM-YYYY HH:mm a '))
+    #     message = client.messages.create(
+    #         body = body,
+    #         to =os.environ['MY_PHONE_NUMBER'], #Should be reservation.phone_number,
+    #         from_ = os.environ['MY_TWILIO_NUMBER'],
+    #         )
+    #
+    # def schedule_reminder(self):
+    #     reservation_time = arrow.get(self.time, self.time_zone)
+    #     reminder_time = reservation_time.replace(minutes=-settings.REMINDER_TIME)
+    #
+    #     from .tasks import send_sms_reminder
+    #     result = send_sms_reminder.apply_async((self.pk,), eta=reminder_time)
+    #
+    #     return result.id
 
 
     def save(self, *args, **kwargs):
@@ -67,6 +67,6 @@ class Reservation(models.Model):
 
         super(Reservation, self).save(*args, **kwargs)
 
-        self.task_id = self.schedule_reminder()
+        # self.task_id = self.schedule_reminder()
 
         super(Reservation, self).save(*args, **kwargs)

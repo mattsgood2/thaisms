@@ -69,7 +69,7 @@ INSTALLED_APPS = [
     # whitenoise runs in localhost #
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-
+    'rest_framework',
 #THIRD PART APPS#
     'bootstrap3',
     'django_forms_bootstrap',
