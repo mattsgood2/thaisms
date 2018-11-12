@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-
+{% load static %}
 {% block title %}Upcoming Reservations{% endblock title %}
 
 {% block content %}
@@ -9,7 +9,6 @@
       <div class="page-header">
         <h1>Reservations</h1>
       </div>
-
       {% if not object_list %}
         <p><strong>No upcoming reservations.</strong> Why not <a href="{% url 'reservations:new_reservation' %}">schedule one?</a>
       {% endif %}

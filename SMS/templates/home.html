@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-
+{% load static from staticfiles %}
 {% block title %}Home{% endblock title %}
 
 {% block content %}
@@ -15,4 +15,9 @@
     </div>
 
   </div><!--/row-->
+  <div id="app">
+    [[ message ]]
+  </div>
+  <script src="{% static 'myvue.js' %}"></script>
+
 {% endblock %}
